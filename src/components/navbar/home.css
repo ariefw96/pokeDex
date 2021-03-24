@@ -1,0 +1,142 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
+main {
+  background-color: #fff;
+}
+
+article {
+  padding: 50px 0px 50px 0px;
+}
+
+/* === Navbar === */
+.navbar-light .navbar-brand {
+  color: #db3022;
+  font-weight: 700;
+}
+
+.col {
+  padding-right: 0px;
+}
+
+.h2{
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #DB3022;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: metropolis;
+}
+
+.navbar {
+  box-shadow: 1px 1px 1px 1px #adadad3f;
+  min-height: 100%;
+}
+
+.input-group {
+  width: 500px;
+}
+
+.input-group-text {
+  border-radius: 200px;
+}
+
+.form-control {
+  border-radius: 200px;
+}
+
+.cart {
+  color: #9B9B9B;
+}
+
+
+/* === Buttons === */
+.btn {
+  font-size: 14px;
+  width: 100px;
+  border-radius: 200px;
+}
+
+.btn-full {
+  color: #fff;
+  background-color: #db3022;
+  border-color: #db3022;
+}
+
+.btn-full:hover {
+  background-color: #ad1b0d;
+  color: #fff;
+}
+
+.btn-outline {
+  border: 1px solid gray;
+  color: gray;
+}
+
+.btn-outline:hover {
+  border: 1px solid #db3022;
+  background-color: #db3022;
+  color: #fff;
+}
+
+.btn-filter {
+  width: 40px;
+  border-radius: 12px;
+}
+
+.btn-red {
+  width: 36px;
+    height: 36px;
+    background-color: #f51b14;
+    border-radius: 50%;
+    border: none;
+}
+
+.btn-green {
+  width: 36px;
+    height: 36px;
+    background-color: #24f70c;
+    border-radius: 50%;
+    border: none;
+}
+.btn-blue {
+  width: 36px;
+    height: 36px;
+    background-color: #037bfc;
+    border-radius: 50%;
+    border: none;
+}
+.btn-black {
+  width: 36px;
+    height: 36px;
+    background-color: #071d36;
+    border-radius: 50%;
+    border: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .input-group {
+    width: 100%;
+  }
+
+  .cart {
+    margin-left: 0px;
+  }
+
+  .btn-login,
+  .btn-signup {
+    display: block;
+    margin: 5px 0px;
+    width: 100%;
+  }
+}
+
+@media only screen and(max-width:576px) {
+  .input-group {
+    width: 60%;
+  }
+}
