@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 class Details extends Component {
     state = {
-        pokemon: [],
+        pokemon: {},
     }
 
     getSinglePoke = () => {
         const { match } = this.props;
-        const imgurl = match.params.name
-        fetch(`https://pokeapi.co/api/v2/pokemon/${imgurl}`)
+        const newUrl = match.params.name
+        fetch(`https://pokeapi.co/api/v2/pokemon/${newUrl}`)
             .then(({ data }) => {
                 console.log(data)
                 this.setState({

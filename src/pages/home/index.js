@@ -23,7 +23,6 @@ class home extends Component {
         return (
             <>
                 <Navbar />
-                <h1>Pokemon Database</h1>
                 {
                             pokemons && pokemons.map(({ id, name, url }) => {
                                 return (
