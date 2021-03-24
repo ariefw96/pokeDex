@@ -25,9 +25,9 @@ class home extends Component {
                 <Navbar />
                 <h1>Pokemon Database</h1>
                 {
-                            pokemons && pokemons.map(({ name, url }) => {
+                            pokemons && pokemons.map(({ id, name, url }) => {
                                 return (
-                                    <CardList name={name} url={url} />
+                                    <CardList key={id} name={name} url={url} />
                                 )
                             })
                         }

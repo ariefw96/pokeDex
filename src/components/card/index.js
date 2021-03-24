@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import './styles.css';
-
+import { Link } from 'react-router-dom'
 class Card extends Component {
 
+
     render() {
-        const { name, url } = this.props
+        const { id, name, url } = this.props
         return (
             <div className="card-container">
-                <a href={`https://www.pokemon.com/us/pokedex/${name}`} target="_blank" rel="noreferrer">
+                 <Link to={{
+                    pathname: `/pokemon/${name}`,
+                    state: this.state
+                }}>
+                {/* <a href={`http://pokeapi.co/api/v2/pokemon/${name}`} target="_blank" rel="noreferrer"> */}
                     <img alt="pokemon" src={`https://img.pokemondb.net/artwork/large/${name}.jpg`} />
                     <h2>{name[0].toUpperCase() + name.slice(1)}</h2>
-                </a>
+                {/* </a> */}
+                </Link>
             </div>
         );
     }
