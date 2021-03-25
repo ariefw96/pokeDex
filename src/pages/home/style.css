@@ -161,6 +161,8 @@
 .btn-primary{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    width: 100px;
     border-radius: 8px;
     background-color: #DB3022
 }
