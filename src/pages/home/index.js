@@ -3,7 +3,6 @@ import Navbar from '../../components/navbar';
 import CardList from '../../components/card'
 import axios from 'axios'
 import './../style.css'
-import Button from 'react-bootstrap/Button';
 
 class home extends Component {
     constructor() {
@@ -34,20 +33,20 @@ class home extends Component {
 
 
     nextPage() {
-        // const nextPage = this.state.nextpage
+        const nextPage = this.state.nextpage
         console.log(this.state.nextpage)
-        // if (nextPage != null) {
-        //     axios.get(this.state.nextpage)
-        //         .then(({ data }) => {
-        //             this.setState({
-        //                 pokemons: data.results,
-        //                 prevpage: data.previous,
-        //                 nextpage: data.next,
-        //             })
-        //         }).catch((error) => {
-        //             console.log(error)
-        //         })
-        // }
+        if (nextPage != null) {
+            axios.get(this.state.nextpage)
+                .then(({ data }) => {
+                    this.setState({
+                        pokemons: data.results,
+                        prevpage: data.previous,
+                        nextpage: data.next,
+                    })
+                }).catch((error) => {
+                    console.log(error)
+                })
+        }
     }
 
     prevPage = () => {
