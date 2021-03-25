@@ -23,19 +23,17 @@ class home extends Component {
                     prevpage: data.previous,
                     nextpage: data.next,
                 })
-                console.log(this.state.prevpage)
-                console.log(this.state.nextpage)
-                console.log(this.state.pokemons)
             }).catch((error) => {
                 console.log(error)
             })
     }
 
 
-    nextPage() {
+    nextPage = () => {
+        // console.log(this.state.nextpage)
         const nextPage = this.state.nextpage
-        console.log(this.state.nextpage)
-        if (nextPage != null) {
+        console.log(nextPage)
+        if (nextPage != '') {
             axios.get(this.state.nextpage)
                 .then(({ data }) => {
                     this.setState({
@@ -65,12 +63,10 @@ class home extends Component {
         }
     }
 
-    //     fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-    //         .then(response => response.json())
-    //         .then(name => this.setState({ pokemons: name.results }));
-    // }
+
     render() {
         const { pokemons, nextpage, prevpage } = this.state
+        console.log(this.state)
         // console.log(this.state.pokemons)
         return (
             <>

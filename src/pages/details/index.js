@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { addPokemon, removePokemon, deleteAllPokemon } from './../../utils/redux/action/pokemonAction'
 import './style.css';
 import Navbar from '../../components/navbar';
 class Details extends Component {
@@ -28,8 +30,27 @@ class Details extends Component {
         this.getSinglePoke();
     }
 
+    addPokemon = () => {
+        this.props.dispatch(addPokemon({
+            id: this.state.pokemon.id,
+            name: this.state.pokemon.name
+        }))
+    }
+
+    removePokemon = () => {
+        this.props.dispatch(removePokemon({
+            id: this.state.pokemon.id,
+            name: this.state.pokemon.name
+        }))
+    }
+
+    removeAllPokemon = () => {
+        this.props.dispatch(deleteAllPokemon())
+    }
+
     render() {
         const { pokemon } = this.state
+        console.log(this.props.reduxPokemon)
         console.log(this.state)
         let status
         if (this.state.isLoading != true) {
@@ -43,15 +64,37 @@ class Details extends Component {
                             <p className='data-name'>ID : {pokemon.id} </p>
                             <p className='data-name'>Name : {pokemon.name}</p>
                             {
-                                pokemon.types.map(({ type, index }) => {
-                                    if (index != 0) {
-                                    return (
-                                        <>
-                                            <p className="data-name">Type : {type.name}</p>
-                                        </>
-                                    )}
+                                pokemon.types.map(({ type }, index) => {
+                                    if (index == 0) {
+                                        return (
+                                            <>
+                                                <div style={{ display: 'flex' }} >
+                                                    <p className="data-name" style={{ width: '60px' }}>Type :</p>
+                                                    <p className="data-name" style={{ width: '100px' }}> - {type.name}</p>
+                                                </div>
+                                            </>
+                                        )
+                                    } else {
+                                        return (
+                                            <>
+                                                <div style={{ display: 'flex' }} >
+                                                    <p className="data-name" style={{ width: '60px' }}></p>
+                                                    <p className="data-name" style={{ width: '100px' }}> - {type.name}</p>
+                                                </div>
+                                            </>
+                                        )
+                                    }
                                 })
                             }
+                        </div>
+                        <div>
+                            <button onClick={this.addPokemon}>Add to Redux</button>
+                        </div>
+                        <div>
+                            <button onClick={this.removePokemon}>Remove from Redux</button>
+                        </div>
+                        <div>
+                            <button onClick={this.removeAllPokemon}>Remove All from Redux</button>
                         </div>
                     </section>
                 </>
@@ -68,4 +111,10 @@ class Details extends Component {
 }
 
 
-export default Details;
+const mapStateToProps = ({ pokemon }) => {
+    return {
+        reduxPokemon: pokemon
+    };
+};
+
+export default connect(mapStateToProps)(Details);
